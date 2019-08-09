@@ -1,0 +1,12 @@
+.navbar {
+    justify-content: space-between;
+}
+
+span {
+    margin-right: 1rem;
+}
+
+span a, a {
+    color: white;
+    text-decoration: none;
+}

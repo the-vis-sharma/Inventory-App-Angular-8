@@ -1,0 +1,21 @@
+<div fxLayout="row">
+    <img src="https://rukminim1.flixcart.com/image/312/312/jhtg4280/printer/u/y/3/hp-deskjet-ink-advantage-3835-all-in-one-original-imaf5r4em5rtjhku.jpeg?q=70">
+    <div class="item-card-content">
+        <h3>{{product.name}}</h3>
+        <p>{{product.category}}</p>
+        <p>
+            <span class="item-price">{{ product.unitPrice | currency}}</span>&nbsp;
+            <span>({{ product.availableUnits }} units)</span>
+            <mat-chip-list aria-label="Tag selection">
+                <mat-chip *ngFor="let tag of product.tags">{{tag}}</mat-chip>
+            </mat-chip-list>
+        </p>
+        <div fxLayout="row" fxLayoutAlign="flex-end" fxLayoutGap="30px">
+            <a [routerLink]="['products/update', product.id]">
+                <button mat-raised-button color="accent">Update</button>
+            </a>
+            <button mat-raised-button color="warn" (click)="deleteProduct(product.id)">Delete</button>
+        </div>
+        <mat-icon class="fav-item">favorite</mat-icon>
+    </div>
+</div>

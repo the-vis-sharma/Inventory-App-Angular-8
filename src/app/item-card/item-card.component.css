@@ -1,0 +1,22 @@
+.item-card-content {
+    position: relative;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 100%;
+}
+
+.fav-item {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    color: #c2c2c2;
+}
+
+::ng-deep .mat-chip-list-wrapper {
+    margin-top: 10px !important;
+}
+
+.item-price {
+    color: #388e3c;
+    font-weight: bold;
+}

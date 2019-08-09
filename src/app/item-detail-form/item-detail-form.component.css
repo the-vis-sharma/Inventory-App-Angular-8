@@ -1,0 +1,21 @@
+.item-form {
+    max-width: 60%;
+    margin: 50px auto;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    width: 50%;
+}
+
+textarea {
+    height: 150px;
+    resize: inherit;
+}
+
+mat-card-content {
+    padding: 20px;
+}
