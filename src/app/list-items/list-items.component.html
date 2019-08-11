@@ -1,39 +1,24 @@
 <mat-card class="item-list" [class.mat-elevation-z4]="true">
-    <mat-card-header fxLayout="row" fxLayoutAlign="space-between">
+    <mat-card-header fxLayout="row wrap" fxLayoutAlign="space-between">
         <mat-form-field class="searchBar">
-            <input matInput>
+            <input matInput (input)="searchProduct($event.target.value)">
             <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>
 
         <div class="filters">
 
             <mat-form-field>
-                <mat-select placeholder="Category">
-                    <mat-option [value]="Mens">
-                        All Category
-                    </mat-option>
-                    <mat-option [value]="Mens">
-                        Mens
-                    </mat-option>
-                    <mat-option [value]="Mens">
-                        Women
-                    </mat-option>
-                    <mat-option [value]="Mens">
-                        Childern
+                <mat-select placeholder="Category" (selectionChange)="filterByCategory($event)">
+                    <mat-option *ngFor="let cat of categories" [value]="cat">
+                        {{cat}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
             <mat-form-field>
-                <mat-select placeholder="Sort By">
-                    <mat-option [value]="Mens">
-                        Low Price to High
-                    </mat-option>
-                    <mat-option [value]="Mens">
-                        Category
-                    </mat-option>
-                    <mat-option [value]="Mens">
-                        Name
+                <mat-select placeholder="Sort By" (selectionChange)="sortProducts($event)">
+                    <mat-option *ngFor="let sort of sortBy" [value]="sort">
+                        {{ sort }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

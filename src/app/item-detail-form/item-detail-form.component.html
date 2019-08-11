@@ -1,28 +1,28 @@
 <mat-card class="item-form" [class.mat-elevation-z4]="true">
         <mat-card-header>
-            <mat-card-title *ngIf="isUpdate; else add">
+            <h3 *ngIf="isUpdate; else addItem;">
                 Update Product Details
-            </mat-card-title>
+            </h3>
 
-            <ng-template #add>
-                <mat-card-title>
+            <ng-template #addItem>
+                <h3>
                     Add A New Product
-                </mat-card-title>
+                </h3>
             </ng-template>
         </mat-card-header>
         <mat-card-content>
-                <form class="add-item-form" fxLayout="column" autocomplete="off" [formGroup]="addItemForm" (ngSubmit)="addProduct(addItemForm.value)">
+                <form class="add-item-form" fxLayout="column" autocomplete="off" [formGroup]="addItemForm">
                     
                     <div fxLayout="row" fxLayoutGap="30px">
                         <mat-form-field class="half-width">
-                            <input matInput placeholder="Name" formControlName="name">
+                            <input matInput placeholder="Name" formControlName="name" [(ngModel)]="product.name">
                             <mat-error *ngIf="hasError('name', 'required')">Product Name is required.</mat-error>
                             <mat-error *ngIf="hasError('name', 'pattern')">Product Name can only contain alphabates.</mat-error>
                             <mat-error *ngIf="hasError('name', 'maxLength')">Product name must be less than 50 character.</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="half-width">
-                            <mat-select placeholder="Category" formControlName="category">
+                            <mat-select placeholder="Category" formControlName="category" [(ngModel)]="product.category">
                                 <mat-option *ngFor="let cat of categories" [value]="cat">
                                     {{cat}}
                                 </mat-option>
@@ -33,29 +33,47 @@
 
                     <div fxLayout="row" fxLayoutGap="30px">
                         <mat-form-field class="half-width">
-                            <input matInput placeholder="Available Units" formControlName="availableUnits">
+                            <input matInput placeholder="Available Units" formControlName="availableUnits" [(ngModel)]="product.availableUnits">
                             <mat-error *ngIf="hasError('availableUnits', 'required')">Available Units is required.</mat-error>
                             <mat-error *ngIf="hasError('availableUnits', 'pattern')">Available Units can only contain numbers.</mat-error>
                             <mat-error *ngIf="hasError('availableUnits', 'min')">Available Units can not less than 0.</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="half-width">
-                            <input matInput placeholder="Unit Price" formControlName="unitPrice">
+                            <input matInput placeholder="Unit Price" formControlName="unitPrice" [(ngModel)]="product.unitPrice">
                             <mat-error *ngIf="hasError('unitPrice', 'required')">Unit Price is required.</mat-error>
                             <mat-error *ngIf="hasError('unitPrice', 'pattern')">Unit Price can only contain numbers.</mat-error>
                             <mat-error *ngIf="hasError('unitPrice', 'min')">Unit Price can not less than 0.</mat-error>
                         </mat-form-field>
                     </div>
 
-                    <app-custom-chips-input></app-custom-chips-input>
+                    <mat-form-field class="chip-list">
+                        <mat-chip-list #chipList aria-label="Tag selection">
+                            <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                                [removable]="removable" (removed)="remove(tag)">
+                                {{tag.name}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            <input placeholder="Tags" formControlName="tags" name="tags"
+                                [matChipInputFor]="chipList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="add($event)">
+                        </mat-chip-list>
+                    </mat-form-field>
 
                     <mat-form-field class="full-width">
-                        <textarea matInput placeholder="Description" formControlName="description"></textarea>
+                        <textarea matInput placeholder="Description" formControlName="description" [(ngModel)]="product.description">
+                            {{product.description}}
+                        </textarea>
                             <mat-error *ngIf="hasError('description', 'maxLength')">Description must be less than 500 characters.</mat-error>
                         </mat-form-field>
 
                     <div fxLayout="row" fxLayoutGap="20px">
-                        <button mat-raised-button color="accent" class="full-width" type="submit" [disabled]="!addItemForm.valid">Add Item</button>
+                        <button mat-raised-button color="accent" class="full-width" type="button" [disabled]="!addItemForm.valid" *ngIf="isUpdate; else btnAdd" (click)="onSubmit(addItemForm.value)">Update Item</button>
+                        <ng-template #btnAdd>
+                            <button mat-raised-button color="accent" class="full-width" type="submit" [disabled]="!addItemForm.valid" (click)="onSubmit(addItemForm.value)">Add Item</button>
+                        </ng-template>
                         <button mat-raised-button class="full-width" type="reset">Cancel</button>
                     </div>
                 </form>

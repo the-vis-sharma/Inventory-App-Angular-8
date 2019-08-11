@@ -1,0 +1,77 @@
+{
+  "products": [
+    {
+      "name": "Nikon D5600 DSLR Camera Body with Dual Lens",
+      "category": "Childern",
+      "availableUnits": "5000",
+      "unitPrice": "50000",
+      "tags": [
+        {
+          "name": "my camera"
+        },
+        {
+          "name": "camera"
+        },
+        {
+          "name": "latest"
+        }
+      ],
+      "description": "DK-25 Rubber Eyecup, BF-1B Body Cap, EN-EL14a Rechargeable Li-ion Battery (with Terminal Cover), AN-DC3 Strap, MH-24 Battery Charger (Plug Adapter Supplied in Countries or Regions where Required, Shape Depends on Country of Sale)\n",
+      "id": 6
+    },
+    {
+      "name": "Dainty Edge To Edge Tempered Glass for Realme X",
+      "category": "Electronics",
+      "availableUnits": "10",
+      "unitPrice": "150",
+      "tags": [
+        {
+          "name": "tempered"
+        },
+        {
+          "name": "gorilla glass 5"
+        }
+      ],
+      "description": "FULL GLUE and NO DOTS, BUBBLES & RAINBOW EFFECT - It has full glue on the entire screen which leaves no dots, no rainbow effect and no bubbles post application of the tempered glass. The tempered glass has strong UV silicon.",
+      "id": 7
+    },
+    {
+      "name": "werewrw",
+      "category": "Electronics",
+      "availableUnits": "12",
+      "unitPrice": "012",
+      "tags": [
+        {
+          "name": "adfdsa"
+        },
+        {
+          "name": "adsfdsaf"
+        },
+        {
+          "name": "asdfdsaf"
+        }
+      ],
+      "description": "dfdsfdsfdsa\n",
+      "id": 8
+    },
+    {
+      "name": "Realme X (4, 128, White)",
+      "category": "Home & Furniture",
+      "availableUnits": "100",
+      "unitPrice": "16999",
+      "tags": [
+        {
+          "name": "mobile"
+        },
+        {
+          "name": "popup selfie"
+        },
+        {
+          "name": "camera"
+        }
+      ],
+      "description": "This is a realme mobile.",
+      "id": 9
+    }
+  ]
+}

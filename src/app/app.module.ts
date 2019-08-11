@@ -10,6 +10,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -22,8 +23,6 @@ import {MatSelectModule} from '@angular/material/select';
 import { ItemCardComponent } from './item-card/item-card.component';
 import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component';
 import { ItemDetailFormComponent } from './item-detail-form/item-detail-form.component';
-import { CustomChipsInputComponent } from './custom-chips-input/custom-chips-input.component';
-import { from } from 'rxjs';
 import { ProductsService } from './products.service';
 
 @NgModule({
@@ -32,8 +31,7 @@ import { ProductsService } from './products.service';
     ListItemsComponent,
     ItemCardComponent,
     CustomToolbarComponent,
-    ItemDetailFormComponent,
-    CustomChipsInputComponent
+    ItemDetailFormComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +48,8 @@ import { ProductsService } from './products.service';
     FlexLayoutModule,
     MatChipsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [ProductsService],
   bootstrap: [AppComponent]

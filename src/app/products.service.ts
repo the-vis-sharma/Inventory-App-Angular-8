@@ -21,10 +21,43 @@ export class ProductsService {
     return this.httpClient.get<ProductDetails[]>(this.url);
   }
 
+  getProductById(id): Observable<ProductDetails> {
+    return this.httpClient.get<ProductDetails>(this.url + "/" + id);
+  }
+
+  updateProduct(id, data) {
+    return this.httpClient.patch(this.url + "/" + id, data);
+  }
+
 
   deleteProduct(id) {
     console.log("in delete product ", this.url + "/" + id);
     return this.httpClient.delete(this.url + "/" + id);
+  }
+
+  getCategories() {
+    return [
+      "All Categories",
+      "Electronics",
+      "Men",
+      "Women",
+      "Kids",
+      "Home & Furniture",
+      "Groceries"
+    ];
+  }
+
+  getSortBy() {
+    return [
+      "Price ▲",
+      "Price ▼",
+      "Available Units ▲",
+      "Available Units ▼",
+      "Name ▲",
+      "Name ▼",
+      "Category ▲",
+      "Category ▼"
+    ];
   }
   
 }
