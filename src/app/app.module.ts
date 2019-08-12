@@ -24,6 +24,7 @@ import { ItemCardComponent } from './item-card/item-card.component';
 import { CustomToolbarComponent } from './custom-toolbar/custom-toolbar.component';
 import { ItemDetailFormComponent } from './item-detail-form/item-detail-form.component';
 import { ProductsService } from './products.service';
+import { InsightsComponent } from './insights/insights.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductsService } from './products.service';
     ListItemsComponent,
     ItemCardComponent,
     CustomToolbarComponent,
-    ItemDetailFormComponent
+    ItemDetailFormComponent,
+    InsightsComponent
   ],
   imports: [
     BrowserModule,

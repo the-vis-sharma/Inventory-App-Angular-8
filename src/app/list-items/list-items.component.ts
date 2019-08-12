@@ -20,7 +20,7 @@ export class ListItemsComponent implements OnInit {
     this.productService.getProducts().subscribe(data => {
       this.allProducts = data;
       this.products = [...data];
-      console.log("data", this.products);
+      // console.log("data", this.products);
     });
 
     this.categories = this.productService.getCategories();

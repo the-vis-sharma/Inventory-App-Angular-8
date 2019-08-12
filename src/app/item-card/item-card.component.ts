@@ -18,7 +18,7 @@ export class ItemCardComponent implements OnInit {
 
   deleteProduct(id) {
     this.productService.deleteProduct(id).subscribe(res => {
-      console.log("Item is deleted", id);
+      // console.log("Item is deleted", id);
     });
   }
 

@@ -38,7 +38,7 @@ export class ItemDetailFormComponent implements OnInit {
     this.isUpdate = (this.route.snapshot.params.opr == "update") ? true : false;
     if(this.isUpdate) {
       this.productId = this.route.snapshot.params.productId;
-      console.log(this.productId);
+      // console.log(this.productId);
       this.productService.getProductById(this.productId).subscribe(data => {
         this.product = data;
         this.tags = data.tags;
@@ -57,7 +57,7 @@ export class ItemDetailFormComponent implements OnInit {
  
   ngOnInit() {
     this.addItemForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.pattern("[a-zA-Z0-9]+[a-zA-Z\ 0-9,\(\)]*")]),
+      name: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.pattern("[a-zA-Z0-9]+[a-zA-Z\ 0-9,\(\)-]*")]),
       category: new FormControl('', [Validators.required]),
       availableUnits: new FormControl('', [Validators.required, Validators.min(0), Validators.max(50000), Validators.pattern("^[0-9]+$")]),
       unitPrice: new FormControl('', [Validators.required, Validators.min(0), Validators.pattern("^[0-9]+$")]),
@@ -90,7 +90,7 @@ export class ItemDetailFormComponent implements OnInit {
   }
 
   onSubmit(data) {
-    console.log("form data", data);
+    // console.log("form data", data);
     data.tags = this.tags;
     if(this.isUpdate) {
       this.updateProduct(data);
@@ -102,7 +102,7 @@ export class ItemDetailFormComponent implements OnInit {
 
   addProduct(data : ProductDetails) {
     this.productService.addProduct(data).subscribe(res => { 
-      console.log("add response", res);
+      // console.log("add response", res);
       this.tags = [];
       this.addItemForm.markAsUntouched();
       this.addItemForm.markAsPristine();
@@ -110,7 +110,7 @@ export class ItemDetailFormComponent implements OnInit {
       this.snackBar.open("Product Added.", "Show", {
         duration: 3000,
       }).onAction().subscribe(() => {
-        console.log("action clicked");
+        // console.log("action clicked");
         this.router.navigate(['']);
       });;
     });
@@ -118,11 +118,11 @@ export class ItemDetailFormComponent implements OnInit {
 
   updateProduct(data : ProductDetails) {
     this.productService.updateProduct(this.productId, data).subscribe(res => { 
-      console.log("update response", res);
+      // console.log("update response", res);
       this.snackBar.open("Product Details has been updated.", "Show", {
         duration: 3000,
       }).onAction().subscribe(() => {
-        console.log("action clicked");
+        // console.log("action clicked");
         this.router.navigate(['']);
       });;
     });

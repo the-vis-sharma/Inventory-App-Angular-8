@@ -13,7 +13,7 @@ export class ProductsService {
   constructor(private httpClient : HttpClient) { }
 
   addProduct(data) {
-    console.log("internal data", data);
+    // console.log("internal data", data);
     return this.httpClient.post(this.url, data);
   }
 
@@ -31,7 +31,7 @@ export class ProductsService {
 
 
   deleteProduct(id) {
-    console.log("in delete product ", this.url + "/" + id);
+    // console.log("in delete product ", this.url + "/" + id);
     return this.httpClient.delete(this.url + "/" + id);
   }
 
